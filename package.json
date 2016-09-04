@@ -1,7 +1,11 @@
 {
-  "name": "starter",
+  "name": "ckstarter",
   "version": "1.0.0",
   "description": "Starter Gulp & Sass",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/Clausi/starter.git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
