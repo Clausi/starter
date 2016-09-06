@@ -25,7 +25,7 @@ gulp.task('sass', function() {
     return gulp.src(scss)
         .pipe(sass())
         .pipe(sourcemaps.init())
-        .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
+        .pipe(postcss([ autoprefixer({ browsers: ['>1%'] }) ]))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(css))
         .pipe(browserSync.stream());
