@@ -2,9 +2,9 @@
   "name": "ckstarter",
   "version": "1.0.0",
   "description": "Starter Gulp & Sass",
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/Clausi/starter.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Clausi/starter.git"
   },
   "main": "index.js",
   "scripts": {
@@ -16,6 +16,7 @@
     "autoprefixer": "^6.4.1",
     "browser-sync": "^2.14.3",
     "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
     "gulp-postcss": "^6.1.1",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0"
