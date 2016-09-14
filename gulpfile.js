@@ -6,9 +6,10 @@ var postcss      = require('gulp-postcss');
 var sourcemaps   = require('gulp-sourcemaps');
 var autoprefixer = require('autoprefixer');
 
-var css = "./app/css/";
-var scss = "./src/scss/**/*.scss"
-var scripts = "./src/js/**/*.js"
+var css_dest = "./app/css/";
+var scss_src = "./src/scss/**/*.scss";
+var js_src = "./src/js/**/*.js";
+var js_dest = "./app/js/";
 
 // Static Server + watching scss/html files
 gulp.task('serve', ['sass', 'scripts'], function() {
@@ -17,27 +18,27 @@ gulp.task('serve', ['sass', 'scripts'], function() {
         server: "./app"
     });
 
-    gulp.watch(scss, ['sass']);
-    gulp.watch(scripts, ['scripts']);
+    gulp.watch(scss_src, ['sass']);
+    gulp.watch(js_src, ['scripts']);
     gulp.watch("app/*.html").on('change', browserSync.reload);
 });
 
 gulp.task('scripts', function() {
-    gulp.src(scripts)
+    gulp.src(js_src)
         .pipe(browserify())
-        .pipe(gulp.dest('./app/js/'))
+        .pipe(gulp.dest(js_dest))
         .pipe(browserSync.stream());
 });
 
 // Compile sass into CSS & auto-inject into browsers
 // added autoprefixer
 gulp.task('sass', function() {
-    return gulp.src(scss)
+    return gulp.src(scss_src)
         .pipe(sass())
         .pipe(sourcemaps.init())
         .pipe(postcss([ autoprefixer({ browsers: ['>1%'] }) ]))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(css))
+        .pipe(gulp.dest(css_dest))
         .pipe(browserSync.stream());
 });
 
